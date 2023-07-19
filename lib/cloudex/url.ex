@@ -96,6 +96,7 @@ defmodule Cloudex.Url do
       signature_for(public_id, options, transformations),
       if(String.length(transformations) > 0, do: transformations),
       version_for(options),
+      Cloudex.Settings.get(:folder),
       public_id
     ]
     |> Enum.reject(&(&1 == nil))
@@ -103,7 +104,7 @@ defmodule Cloudex.Url do
     |> append_format(options)
   end
 
-  defp base_url, do: "#{@base_url}/#{Cloudex.Settings.get(:cloud_name)}/#{Cloudex.Settings.get(:folder)}"
+  defp base_url, do: "#{@base_url}/#{Cloudex.Settings.get(:cloud_name)}"
 
   defp append_format(url, options), do: url <> format(options)
 
