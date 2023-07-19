@@ -103,7 +103,7 @@ defmodule Cloudex.Url do
     |> append_format(options)
   end
 
-  defp base_url, do: "#{@base_url}/#{Cloudex.Settings.get(:cloud_name)}"
+  defp base_url, do: "#{@base_url}/#{Cloudex.Settings.get(:cloud_name)}/#{Cloudex.Settings.get(:folder)}"
 
   defp append_format(url, options), do: url <> format(options)
 

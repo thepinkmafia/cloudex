@@ -17,7 +17,7 @@ defmodule Cloudex.Settings do
   Called by the supervisor, this will use settings defined in config.exs or ENV vars
   """
   def start(:normal, []) do
-    [:api_key, :secret, :cloud_name]
+    [:api_key, :secret, :cloud_name, :folder]
     |> get_app_config
     |> Cloudex.EnvOptions.merge_missing_settings()
     |> start
